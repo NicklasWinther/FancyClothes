@@ -1,4 +1,6 @@
 <?php
+$title = "Login";
+$desc = 'Velkommen til FancyClothes.dk loginside';
 if (isset($_POST['formUsername'])) {
     $formUsername = $_POST['formUsername'];
     $formPassword = $_POST['formPassword'];
@@ -17,8 +19,7 @@ if (isset($_POST['formUsername'])) {
     if (empty($row = $statement->fetch())) {
         //Forkert login
         $dbh = null;
-        $title = "Login";
-        $desc = 'Velkommen til FancyClothes.dk';
+
         require "header.php"; ?>
         <div class="container">
             <h2 class='errorMsg'>Forkert login</h2>

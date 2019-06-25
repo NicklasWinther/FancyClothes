@@ -5,22 +5,26 @@ $desc = 'Velkommen til FancyClothes.dk';
 require "header.php"; ?>
 <div class="createArticle container">
     <h3 class="center errorMsg">Opret ny vare:</h3>
-    <form action="includes/insertArticle.php" method="post">
+    <form action="assets/insertArticle.php" method="post">
         <div>
-            <label for="imgSrc">Billede</label>
-            <input type="text" id="imgSrc" name="imgSrc" placeholder="Vælg billede" required>
+            <label for="imgUrl">Billede</label>
+            <input type="text" id="imgUrl" name="imgUrl" placeholder="Vælg billede" required>
         </div>
         <div>
             <label for="imgAlt">Alt tekst</label>
             <input type="text" id="imgAlt" name="imgAlt" placeholder="Billedets alttekst..." required>
         </div>
         <div>
-            <label for="heading">Overskrift</label>
-            <input type="text" id="heading" name="heading" placeholder="Overskrift..." required>
+            <label for="title">Overskrift</label>
+            <input type="text" id="title" name="title" placeholder="Overskrift..." required>
         </div>
         <div>
-            <label for="content">Brødtekst</label>
-            <textarea name="content" id="content" cols="30" rows="10" placeholder="Brødtekst..."></textarea>
+            <label for="price">Pris</label>
+            <input type="text" id="price" name="price" placeholder="Pris..." required>
+        </div>
+        <div>
+            <label for="text">Brødtekst</label>
+            <textarea name="text" id="text" cols="30" rows="10" placeholder="Brødtekst..."></textarea>
         </div>
         <div>
             <label for="stars">Antal stjerner</label>
@@ -33,14 +37,15 @@ require "header.php"; ?>
             </select>
         </div>
         <div>
-            <label for="category">Kategori</label>
-            <select name="category" id="category" required>
-                <option value="jakker">Jakker</option>
-                <option value="bukser">Bukser</option>
-                <option value="skjorter">Skjorter</option>
-                <option value="strik">Strik</option>
-                <option value="tshirts">T-shirts og tanktops</option>
-                <option value="tasker">Tasker</option>
+            <label for="categoryId">Kategori</label>
+            <select name="categoryId" id="categoryId" required>
+                <option value="1">Jakker</option>
+                <option value="2">Bukser</option>
+                <option value="3">Skjorter</option>
+                <option value="4">Strik</option>
+                <option value="5">T-shirts og tanktops</option>
+                <option value="6">Tasker</option>
+                <option value="7">Sko</option>
             </select>
         </div>
         <div>
@@ -99,29 +104,11 @@ require "header.php"; ?>
             </div>
         </div>
         <div class="frontProducts">
+
+            <?php require "assets/getArticles.php" ?>
+
             <article>
-                <img src="img/leather-jacket.jpg" alt="Lækker læderjakke>">
-                <div class="info">
-                    <h3>Lækker læderjakke</h3>
-                    <div class="stars">
-                        <i class='fa fa-star' aria-hidden='true'></i>
-                        <i class='fa fa-star' aria-hidden='true'></i>
-                        <i class='fa fa-star' aria-hidden='true'></i>
-                        <i class='fa fa-star-o' aria-hidden='true'></i>
-                        <i class='fa fa-star-o' aria-hidden='true'></i>
-                    </div>
-                </div>
-                <div class="description">
-                    <div class="published">
-                        Oprettet: Mandag d. 24/6-2019 af Mark
-                    </div>
-                    <p>Odd Molly er et svensk luksusbrand stiftet af Per Holknekt – tidligere pro skateboarder. Verdenseliten tiltrak dengang mange kvindelige fans, og de fleste af dem gjorde, hvad de kunne for at få fyrenes opmærksomhed. Alle undtagen én. Hun forblev tro mod sig selv - en unik, selvsikker og uforanderlig skønhed - hende, alle fyrene ville ha'. En Odd Molly! - som ikke er et koncept, men autentisk! – et brand, hvis kollektioner er vildt smukke og inderlige, som der altid vil være brug for - dengang, nu, såvel som i fremtiden.
-                        <a href="#">Læs mere...</a></p>
-                    <!-- Mulighed for sletning herunder -->
-                </div>
-            </article>
-            <article>
-                <img src="img/leather-jacket.jpg" alt="Lækker læderjakke>">
+                <img src="img/læderjakke.jpg" alt="Lækker læderjakke>">
                 <div class="info">
                     <h3>Lækker læderjakke</h3>
                     <div class="stars">
