@@ -56,9 +56,9 @@
                 <li><a href="#">Produkter</a></li>
                 <li><a href="#">Nyheder</a></li>
                 <li><a href="#">Handelsbetingelser</a></li>
-                <li><a href="#">Om os</a></li>
+                <li <?php echo $title == "Om os" ? "class='active'" : "" ?>><a href="about.php">Om os</a></li>
                 <?php if (isset($_SESSION['username'])) { ?>
-                    <li><a href='assets/logout.php'>Log ud</a></li>
+                    <li><a href='assets/logout.php?url=<?php echo basename($_SERVER['PHP_SELF']) ?>'>Log ud</a></li>
                 <?php } else { ?>
                     <li <?php echo $title == "Login" ? "class='active'" : "" ?>><a href='#' class='loginBtn'>Log ind</a></li>
                     <li <?php echo $title == "Opret bruger" ? "class='active'" : "" ?>><a href='register.php' class='loginBtn'>Opret bruger</a></li>

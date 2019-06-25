@@ -2,57 +2,58 @@
 $title = "Forside";
 $desc = 'Velkommen til FancyClothes.dk';
 
-require "header.php"; ?>
-<div class="createArticle container">
-    <h3 class="center errorMsg">Opret ny vare:</h3>
-    <form action="assets/insertArticle.php" method="post">
-        <div>
-            <label for="imgUrl">Billede</label>
-            <input type="text" id="imgUrl" name="imgUrl" placeholder="Vælg billede" required>
-        </div>
-        <div>
-            <label for="imgAlt">Alt tekst</label>
-            <input type="text" id="imgAlt" name="imgAlt" placeholder="Billedets alttekst..." required>
-        </div>
-        <div>
-            <label for="title">Overskrift</label>
-            <input type="text" id="title" name="title" placeholder="Overskrift..." required>
-        </div>
-        <div>
-            <label for="price">Pris</label>
-            <input type="text" id="price" name="price" placeholder="Pris..." required>
-        </div>
-        <div>
-            <label for="text">Brødtekst</label>
-            <textarea name="text" id="text" cols="30" rows="10" placeholder="Brødtekst..."></textarea>
-        </div>
-        <div>
-            <label for="stars">Antal stjerner</label>
-            <select name="stars" id="stars">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-            </select>
-        </div>
-        <div>
-            <label for="categoryId">Kategori</label>
-            <select name="categoryId" id="categoryId" required>
-                <option value="1">Jakker</option>
-                <option value="2">Bukser</option>
-                <option value="3">Skjorter</option>
-                <option value="4">Strik</option>
-                <option value="5">T-shirts og tanktops</option>
-                <option value="6">Tasker</option>
-                <option value="7">Sko</option>
-            </select>
-        </div>
-        <div>
-            <input type="submit" value="Opret" name="value">
-        </div>
-    </form>
-
+require "header.php";
+if (isset($_SESSION['username'])) { ?>
+    <div class="createArticle container">
+        <h3 class="center errorMsg">Opret ny vare:</h3>
+        <form action="assets/insertArticle.php" method="post">
+            <div>
+                <label for="imgUrl">Billede</label>
+                <input type="text" id="imgUrl" name="imgUrl" placeholder="Vælg billede" required>
+            </div>
+            <div>
+                <label for="imgAlt">Alt tekst</label>
+                <input type="text" id="imgAlt" name="imgAlt" placeholder="Billedets alttekst..." required>
+            </div>
+            <div>
+                <label for="title">Overskrift</label>
+                <input type="text" id="title" name="title" placeholder="Overskrift..." required>
+            </div>
+            <div>
+                <label for="price">Pris</label>
+                <input type="text" id="price" name="price" placeholder="Pris..." required>
+            </div>
+            <div>
+                <label for="text">Brødtekst</label>
+                <textarea name="text" id="text" cols="30" rows="10" placeholder="Brødtekst..."></textarea>
+            </div>
+            <div>
+                <label for="stars">Antal stjerner</label>
+                <select name="stars" id="stars">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </div>
+            <div>
+                <label for="categoryId">Kategori</label>
+                <select name="categoryId" id="categoryId" required>
+                    <option value="1">Jakker</option>
+                    <option value="2">Bukser</option>
+                    <option value="3">Skjorter</option>
+                    <option value="4">Strik</option>
+                    <option value="5">T-shirts og tanktops</option>
+                    <option value="6">Tasker</option>
+                    <option value="7">Sko</option>
+                </select>
+            </div>
+            <div>
+                <input type="submit" value="Opret" name="value">
+            </div>
+        </form>
+    <?php } ?>
 </div>
 </div>
 <main class="container">
@@ -107,27 +108,7 @@ require "header.php"; ?>
 
             <?php require "assets/getArticles.php" ?>
 
-            <article>
-                <img src="img/læderjakke.jpg" alt="Lækker læderjakke>">
-                <div class="info">
-                    <h3>Lækker læderjakke</h3>
-                    <div class="stars">
-                        <i class='fa fa-star' aria-hidden='true'></i>
-                        <i class='fa fa-star' aria-hidden='true'></i>
-                        <i class='fa fa-star' aria-hidden='true'></i>
-                        <i class='fa fa-star-o' aria-hidden='true'></i>
-                        <i class='fa fa-star-o' aria-hidden='true'></i>
-                    </div>
-                </div>
-                <div class="description">
-                    <div class="published">
-                        Oprettet: Mandag d. 24/6-2019 af Mark
-                    </div>
-                    <p>Odd Molly er et svensk luksusbrand stiftet af Per Holknekt – tidligere pro skateboarder. Verdenseliten tiltrak dengang mange kvindelige fans, og de fleste af dem gjorde, hvad de kunne for at få fyrenes opmærksomhed. Alle undtagen én. Hun forblev tro mod sig selv - en unik, selvsikker og uforanderlig skønhed - hende, alle fyrene ville ha'. En Odd Molly! - som ikke er et koncept, men autentisk! – et brand, hvis kollektioner er vildt smukke og inderlige, som der altid vil være brug for - dengang, nu, såvel som i fremtiden.
-                        <a href="#">Læs mere...</a></p>
-                    <!-- Mulighed for sletning herunder -->
-                </div>
-            </article>
+
         </div>
     </div>
 </main>
