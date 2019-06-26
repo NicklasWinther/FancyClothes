@@ -453,6 +453,34 @@ h6 {
   font-weight: bold;
 }
 
+// Knap til toppen
+button.toTop {
+  position: fixed;
+  padding: 0;
+  border: 0;
+  width: 40px;
+  height: 40px;
+  bottom: 40px;
+  right: 20px;
+  font-size: 40px;
+  background: none;
+  transition: 0.6s;
+  outline: none;
+  i {
+    border-radius: 50%;
+    color: white;
+    background-color: #666;
+    border: 3px solid #666;
+    transition: 0.3s;
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+  &.hide {
+    bottom: -40px;
+  }
+}
+
 // Mediaqueries
 @media screen and (max-width: 1700px) {
   .container {

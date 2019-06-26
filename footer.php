@@ -35,6 +35,8 @@
         $("#slider").slider();
     });
 </script>
+<button class="hide toTop"><i class="fas fa-chevron-circle-up"></i></button>
+<script src="js/script.js"></script>
 </body>
 
 </html>
