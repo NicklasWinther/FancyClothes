@@ -40,13 +40,7 @@ if (isset($_SESSION['username'])) { ?>
             <div>
                 <label for="categoryId">Kategori</label>
                 <select name="categoryId" id="categoryId" required>
-                    <option value="1">Jakker</option>
-                    <option value="2">Bukser</option>
-                    <option value="3">Skjorter</option>
-                    <option value="4">Strik</option>
-                    <option value="5">T-shirts og tanktops</option>
-                    <option value="6">Tasker</option>
-                    <option value="7">Sko</option>
+                    <?php require "assets/getFormCategories.php" ?>
                 </select>
             </div>
             <div>
@@ -64,12 +58,7 @@ if (isset($_SESSION['username'])) { ?>
             </div>
             <div class="catMain">
                 <ul>
-                    <li><a href="#">Jakker</a></li>
-                    <li><a href="#">Bukser</a></li>
-                    <li><a href="#">Skjorter</a></li>
-                    <li><a href="#">Strik</a></li>
-                    <li><a href="#">T-shirts & Tank tops</a></li>
-                    <li><a href="#">Tasker</a></li>
+                    <?php require "assets/getCategoryLinks.php" ?>
                 </ul>
             </div>
         </div>

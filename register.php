@@ -52,8 +52,8 @@ require "header.php"; ?>
         } else {
             $statement = $dbh->prepare("INSERT INTO users(dbUsername, dbEmail, dbPassword) VALUES(?, ?, ?)");
             $statement->bindParam(1, $formUsername);
-            $statement->bindParam(1, $formEmail);
-            $statement->bindParam(2, $formPassword);
+            $statement->bindParam(2, $formEmail);
+            $statement->bindParam(3, $formPassword);
             $statement->execute();
             echo "<p>Success - Bruger oprettet!</p>";
         }
