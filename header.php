@@ -52,13 +52,15 @@
     <div class="container navbar">
         <nav>
             <ul>
+                <!-- Tilføj klassen active til den li der svarer til den sides titel -->
                 <li <?php echo $title == "Forside" ? "class='active'" : "" ?>><a href="index.php">Forside</a></li>
                 <li><a href="#">Produkter</a></li>
                 <li><a href="#">Nyheder</a></li>
                 <li><a href="#">Handelsbetingelser</a></li>
                 <li <?php echo $title == "Om os" ? "class='active'" : "" ?>><a href="about.php">Om os</a></li>
                 <?php if (isset($_SESSION['username'])) { ?>
-                    <li><a href='assets/logout.php?url=<?php echo basename($_SERVER['PHP_SELF']) ?>'>Log ud</a></li>
+                    <!-- Hvis brugeren er logget ind, vis kun log ud knap, ellers vis "login" og "opret bruger" knap -->
+                    <li><a href='assets/logout.php?url=<?php echo basename($_SERVER['PHP_SELF']) ?>'>Log ud</a></li> <!-- Bruger $_SERVER['PHP_SELF'] til at få sidens url, og derefter basename() til kun at få fat i sidens navn fx. index.php-->
                 <?php } else { ?>
                     <li <?php echo $title == "Login" ? "class='active'" : "" ?>><a href='#' class='loginBtn'>Log ind</a></li>
                     <li <?php echo $title == "Opret bruger" ? "class='active'" : "" ?>><a href='register.php' class='loginBtn'>Opret bruger</a></li>
@@ -75,7 +77,7 @@
             </div>
         </div>
     </div>
-
+    <!-- Fjern også formularen hvis man er logget ind -->
     <?php if (!isset($_SESSION['username'])) { ?>
         <div class="login container">
             <form action="login.php?url=<?php echo basename($_SERVER['PHP_SELF']) ?>" method="post">
@@ -92,9 +94,9 @@
     <hr>
     <div class="container">
         <ul class="slider" id="slider">
-            <li><img src="img/slide1.jpg" alt=""></li>
-            <li><img src="img/slide2.jpg" alt=""></li>
-            <li><img src="img/slide3.jpg" alt=""></li>
+            <li><img src="img/2-par-sko.jpg" alt="2 par sko"></li>
+            <li><img src="img/udstillingssko.jpg" alt="Sko til udstilling"></li>
+            <li><img src="img/tøj-på-knager.jpg" alt="Tøj på knager"></li>
         </ul>
     </div>
     <hr class="hide400">

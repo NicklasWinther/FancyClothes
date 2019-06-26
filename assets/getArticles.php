@@ -1,12 +1,12 @@
 <?php
 require_once "connect.php";
 
-if (!isset($_GET["categoryId"])) {
+if (!isset($_GET["categoryId"])) { //Hvis ikke URL'en har en categoryId parameter, hent alle produkter og kategorier
     $statement = $dbh->prepare("SELECT * FROM products 
     JOIN users ON products.userId = users.userId 
     JOIN categories ON products.categoryId = categories.categoryId");
     $statement->execute();
-} else {
+} else { // Hvis URL'en har en categoryId parameter, hent kun prudukter med den kategori id
     $statement = $dbh->prepare("SELECT * FROM products 
     JOIN users ON products.userId = users.userId 
     JOIN categories ON products.categoryId = categories.categoryId
@@ -15,6 +15,7 @@ if (!isset($_GET["categoryId"])) {
     $statement->execute();
 }
 while ($row = $statement->fetch(PDO::FETCH_ASSOC)) { ?>
+    <!-- Hent alle produkter i et associative array (Index er kolonne navn i stedet for nummer) -->
     <article>
         <img src="img/<?php echo $row['imgUrl'] ?>" alt="<?php echo $row['imgAlt'] ?>">
         <div class="info">

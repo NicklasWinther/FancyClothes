@@ -5,7 +5,7 @@ if (isset($_POST['formUsername'])) {
     $formUsername = $_POST['formUsername'];
     $formPassword = $_POST['formPassword'];
     $url = $_GET["url"];
-    if ($url === "login.php") {
+    if ($url === "login.php" || $url === "register.php") { //Hvis du er op login eller opret bruger siden, bliver du sendt tilbage til forsiden
         $url = "index.php";
     }
 

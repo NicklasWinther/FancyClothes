@@ -3,6 +3,7 @@ $title = "Forside";
 $desc = 'Velkommen til FancyClothes.dk';
 
 require "header.php";
+// Hvis man er logget ind, indsæt form til at oprette nye produkter
 if (isset($_SESSION['username'])) { ?>
     <div class="createArticle container">
         <h3 class="center errorMsg">Opret ny vare:</h3>
@@ -40,6 +41,7 @@ if (isset($_SESSION['username'])) { ?>
             <div>
                 <label for="categoryId">Kategori</label>
                 <select name="categoryId" id="categoryId" required>
+                    <!-- Få fat i alle kategorierne, og indsæt dem i en <option> -->
                     <?php require "assets/getFormCategories.php" ?>
                 </select>
             </div>
@@ -58,6 +60,7 @@ if (isset($_SESSION['username'])) { ?>
             </div>
             <div class="catMain">
                 <ul>
+                    <!-- Få fat i alle kategorierne, og indsæt dem i en <ul> -->
                     <?php require "assets/getCategoryLinks.php" ?>
                 </ul>
             </div>
@@ -94,10 +97,8 @@ if (isset($_SESSION['username'])) { ?>
             </div>
         </div>
         <div class="frontProducts">
-
+            <!-- Hent alle produkter, og indsæt dem i en <article> -->
             <?php require "assets/getArticles.php" ?>
-
-
         </div>
     </div>
 </main>
